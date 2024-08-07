@@ -8,6 +8,10 @@ class Kbre < Formula
 
   depends_on "openjdk@21" => :build
 
+  on_linux do
+    depends_on "openssl@3"
+  end
+
   def install
     ENV["JAVA_HOME"] = Language::Java.java_home("21")
     os = OS.linux? ? "linux" : "macos"
