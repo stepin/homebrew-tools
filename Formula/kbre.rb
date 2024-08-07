@@ -7,10 +7,8 @@ class Kbre < Formula
   head "https://github.com/stepin/kbre.git", branch: "main"
 
   depends_on "openjdk@21" => :build
-
-  on_linux do
-    depends_on "openssl@3"
-  end
+  # it's unclear how to fix "Unwanted system libraries: /lib/x86_64-linux-gnu/libcrypt.so.1"
+  depends_on :macos
 
   def install
     ENV["JAVA_HOME"] = Language::Java.java_home("21")
