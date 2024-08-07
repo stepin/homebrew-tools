@@ -2,7 +2,7 @@
 
 ## How do I install KBRE?
 
-More details: https://github.com/stepin/kbre
+More details: https://github.com/stepin/kbre .
 
 `brew install stepin/tools/kbre`
 
