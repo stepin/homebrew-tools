@@ -1,14 +1,12 @@
 class Kbre < Formula
   desc "Automates generation and update of Gradle config files in JS/Python way"
   homepage "https://github.com/stepin/kbre/"
-  url "https://github.com/stepin/kbre/archive/refs/tags/1.0.0.tar.gz"
-  sha256 "ce9bb96126075634d0bfa1e24f0a9f2ac0253e70d5fd5ed71b654a9fa8660e0f"
+  url "https://github.com/stepin/kbre/archive/refs/tags/1.1.0.tar.gz"
+  sha256 "e3e622aba4ee8ffa1172a57b87d6f7b433e5660dd23e4176ecf969528687befb"
   license "MIT"
   head "https://github.com/stepin/kbre.git", branch: "main"
 
   depends_on "openjdk@21" => :build
-  # it's unclear how to fix "Unwanted system libraries: /lib/x86_64-linux-gnu/libcrypt.so.1"
-  depends_on :macos
 
   def install
     ENV["JAVA_HOME"] = Language::Java.java_home("21")
