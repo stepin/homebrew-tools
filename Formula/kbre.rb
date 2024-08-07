@@ -6,6 +6,12 @@ class Kbre < Formula
   license "MIT"
   head "https://github.com/stepin/kbre.git", branch: "main"
 
+  bottle do
+    root_url "https://github.com/stepin/homebrew-tools/releases/download/kbre-1.1.0"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma: "9051090447d06a99f85bf43068cac28a8706bbf20f2b0f72124e077196232619"
+    sha256 cellar: :any_skip_relocation, ventura:      "6b833af8021ff30b3a5cf13b87cdf83f71daf7882d917a678632bf5056ead848"
+  end
+
   depends_on "openjdk@21" => :build
 
   def install
