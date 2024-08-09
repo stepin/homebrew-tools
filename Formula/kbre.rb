@@ -21,6 +21,11 @@ class Kbre < Formula
     suffix = (Hardware::CPU.arch == :x86_64) ? "X64" : "Arm64"
     system "./gradlew", "--no-daemon", "linkReleaseExecutable#{os2}#{suffix}"
     bin.install "build/bin/#{os}#{suffix}/releaseExecutable/kbre.kexe" => "kbre"
+
+    system "bin/generate-completions"
+    zsh_completion.install "build/bin/native/kbre.zsh" => "_kbre"
+    bash_completion.install "build/bin/native/kbre.bash"
+    fish_completion.install "build/bin/native/kbre.fish"
   end
 
   test do
