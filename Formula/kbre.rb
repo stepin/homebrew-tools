@@ -1,8 +1,8 @@
 class Kbre < Formula
   desc "Automates generation and update of Gradle config files in JS/Python way"
   homepage "https://github.com/stepin/kbre/"
-  url "https://github.com/stepin/kbre/archive/refs/tags/1.1.0.tar.gz"
-  sha256 "e3e622aba4ee8ffa1172a57b87d6f7b433e5660dd23e4176ecf969528687befb"
+  url "https://github.com/stepin/kbre/archive/refs/tags/1.2.0.tar.gz"
+  sha256 "eaf53e45e29b8a23d5713ebc41cb6d96c5539d0f0862336f3367cf094c6df37c"
   license "MIT"
   head "https://github.com/stepin/kbre.git", branch: "main"
 
