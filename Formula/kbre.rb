@@ -22,6 +22,8 @@ class Kbre < Formula
     system "./gradlew", "--no-daemon", "linkReleaseExecutable#{os2}#{suffix}"
     bin.install "build/bin/#{os}#{suffix}/releaseExecutable/kbre.kexe" => "kbre"
 
+    system 'bash -c \'echo unameOut="$(uname -s)"; echo $unameOut\''
+    system 'bash -c \'echo arch="$(uname -m)"; echo $arch\''
     system "bin/generate-completions"
     zsh_completion.install "build/bin/native/kbre.zsh" => "_kbre"
     bash_completion.install "build/bin/native/kbre.bash"
