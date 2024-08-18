@@ -36,6 +36,6 @@ class Kbre < Formula
 
   test do
     output = shell_output(bin/"kbre version")
-    assert_match "SNAPSHOT", output
+    assert_match "1.2.2", output
   end
 end
