@@ -7,9 +7,9 @@ class Kbre < Formula
   head "https://github.com/stepin/kbre.git", branch: "main"
 
   bottle do
-    root_url "https://github.com/stepin/homebrew-tools/releases/download/kbre-1.1.0"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma: "9051090447d06a99f85bf43068cac28a8706bbf20f2b0f72124e077196232619"
-    sha256 cellar: :any_skip_relocation, ventura:      "6b833af8021ff30b3a5cf13b87cdf83f71daf7882d917a678632bf5056ead848"
+    root_url "https://github.com/stepin/homebrew-tools/releases/download/kbre-1.2.1"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma: "aa79a15453dd3400efa9638a014cf90103f5d1945876176bcc9959529e487427"
+    sha256 cellar: :any_skip_relocation, ventura:      "7225d1357f751a81cc816f9fb3f6f9a1ba6b234960912c37440eccad90f9fa3b"
   end
 
   depends_on "openjdk@21" => :build
