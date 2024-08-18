@@ -1,8 +1,8 @@
 class Kbre < Formula
   desc "Automates generation and update of Gradle config files in JS/Python way"
   homepage "https://github.com/stepin/kbre/"
-  url "https://github.com/stepin/kbre/archive/refs/tags/1.2.0.tar.gz"
-  sha256 "eaf53e45e29b8a23d5713ebc41cb6d96c5539d0f0862336f3367cf094c6df37c"
+  url "https://github.com/stepin/kbre/archive/refs/tags/1.2.1.tar.gz"
+  sha256 "87d835cd675d79f3a637c6f383a623b2b02bc3d607b0d56ff60dee2330865792"
   license "MIT"
   head "https://github.com/stepin/kbre.git", branch: "main"
 
@@ -17,13 +17,11 @@ class Kbre < Formula
   def install
     ENV["JAVA_HOME"] = Language::Java.java_home("21")
     os = OS.linux? ? "linux" : "macos"
-    os2 = OS.linux? ? "Linux" : "Macos"
+    osUpperCase = OS.linux? ? "Linux" : "Macos"
     suffix = (Hardware::CPU.arch == :x86_64) ? "X64" : "Arm64"
-    system "./gradlew", "--no-daemon", "linkReleaseExecutable#{os2}#{suffix}"
+    system "./gradlew", "--no-daemon", "linkReleaseExecutable#{osUpperCase}#{suffix}"
     bin.install "build/bin/#{os}#{suffix}/releaseExecutable/kbre.kexe" => "kbre"
 
-    system "bash", "--version"
-    system "python3", "-V"
     system "bin/generate-completions"
     zsh_completion.install "build/bin/native/kbre.zsh" => "_kbre"
     bash_completion.install "build/bin/native/kbre.bash"
