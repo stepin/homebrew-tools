@@ -17,9 +17,9 @@ class Kbre < Formula
   def install
     ENV["JAVA_HOME"] = Language::Java.java_home("21")
     os = OS.linux? ? "linux" : "macos"
-    osUpperCase = OS.linux? ? "Linux" : "Macos"
+    os_upper_case = OS.linux? ? "Linux" : "Macos"
     suffix = (Hardware::CPU.arch == :x86_64) ? "X64" : "Arm64"
-    system "./gradlew", "--no-daemon", "linkReleaseExecutable#{osUpperCase}#{suffix}"
+    system "./gradlew", "--no-daemon", "linkReleaseExecutable#{os_upper_case}#{suffix}"
     bin.install "build/bin/#{os}#{suffix}/releaseExecutable/kbre.kexe" => "kbre"
 
     system "bin/generate-completions"
