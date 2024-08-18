@@ -1,8 +1,8 @@
 class Kbre < Formula
   desc "Automates generation and update of Gradle config files in JS/Python way"
   homepage "https://github.com/stepin/kbre/"
-  url "https://github.com/stepin/kbre/archive/refs/tags/1.2.1.tar.gz"
-  sha256 "87d835cd675d79f3a637c6f383a623b2b02bc3d607b0d56ff60dee2330865792"
+  url "https://github.com/stepin/kbre/archive/refs/tags/1.2.2.tar.gz"
+  sha256 "c35ce2df60e9a07bd19cf4d6b348b707020ad4175a7e9ebfade6070db0229c20"
   license "MIT"
   head "https://github.com/stepin/kbre.git", branch: "main"
 
@@ -15,6 +15,11 @@ class Kbre < Formula
   depends_on "openjdk@21" => :build
 
   def install
+    # set version
+    ENV["VERSION"] = "1.2.2"
+    system "bin/set-version"
+
+    # compile
     ENV["JAVA_HOME"] = Language::Java.java_home("21")
     os = OS.linux? ? "linux" : "macos"
     os_upper_case = OS.linux? ? "Linux" : "Macos"
@@ -22,6 +27,7 @@ class Kbre < Formula
     system "./gradlew", "--no-daemon", "linkReleaseExecutable#{os_upper_case}#{suffix}"
     bin.install "build/bin/#{os}#{suffix}/releaseExecutable/kbre.kexe" => "kbre"
 
+    # generate completions
     system "bin/generate-completions"
     zsh_completion.install "build/bin/native/releaseExecutable/kbre.zsh" => "_kbre"
     bash_completion.install "build/bin/native/releaseExecutable/kbre.bash"
