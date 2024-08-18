@@ -23,12 +23,9 @@ class Kbre < Formula
     bin.install "build/bin/#{os}#{suffix}/releaseExecutable/kbre.kexe" => "kbre"
 
     system "bin/generate-completions"
-    system "ls", "-l", "build/bin"
-    system "ls", "-l", "build/bin/#{os}#{suffix}/releaseExecutable"
-    system "ls", "-l", "build/bin/native"
-    zsh_completion.install "build/bin/native/kbre.zsh" => "_kbre"
-    bash_completion.install "build/bin/native/kbre.bash"
-    fish_completion.install "build/bin/native/kbre.fish"
+    zsh_completion.install "build/bin/native/releaseExecutable/kbre.zsh" => "_kbre"
+    bash_completion.install "build/bin/native/releaseExecutable/kbre.bash"
+    fish_completion.install "build/bin/native/releaseExecutable/kbre.fish"
   end
 
   test do
